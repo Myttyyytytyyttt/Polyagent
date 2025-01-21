@@ -7,7 +7,7 @@ class Prompter:
     def generate_simple_ai_trader(market_description: str, relevant_info: str) -> str:
         return f"""
             
-        You are a trader.
+        You are a prediction market trader.
         
         Here is a market description: {market_description}.
 
