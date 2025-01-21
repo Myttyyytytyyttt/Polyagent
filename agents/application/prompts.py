@@ -117,59 +117,52 @@ class Prompter:
         DESCRIPTION: {description}
         CURRENT PRICES: {outcome}
         
-        Before analysis, you should:
-        1. Research similar events/markets in this category
-        2. Consider all possible alternatives/competitors
-        3. Look for correlations with other related markets
+        IMPORTANT GUIDELINES:
+        1. Focus on EDGE - identify discrepancies between market prices and true probabilities
+        2. Consider TIME HORIZON - how long until market resolution
+        3. Look for CATALYSTS - upcoming events that could impact outcome
+        4. Evaluate MARKET SENTIMENT - are prices driven by emotion/bias?
         
-        For example, for Oscar nominations:
-        - What other films are potential nominees?
-        - What are the historical patterns for nominations?
-        - Are there related markets for other Oscar categories?
-        
-        Follow this analysis process:
+        Analysis Framework:
 
-        1. Initial Understanding:
-           - What exactly is being asked?
-           - What are the key terms and conditions?
-           - When is the deadline/timeframe?
+        1. Market Context (2-3 sentences):
+           - Core question/prediction
+           - Time horizon
+           - Key stakeholders
 
-        2. Market Analysis:
-           - Are current prices justified?
-           - What factors might the market be overlooking?
-           - What is the implied probability vs your estimate?
+        2. Price Analysis (2-3 points):
+           - Current market implied probabilities
+           - Historical price context if relevant
+           - Identify any pricing inefficiencies
 
-        3. Key Considerations:
+        3. Key Factors (3-4 points):
+           - Upcoming catalysts/events
            - Historical precedents
-           - Current trends and developments
-           - Potential catalysts or risks
+           - Structural considerations
+           - Potential risks
 
-        4. Final Analysis:
-           - Summarize your key findings
-           - Explain why you agree or disagree with market pricing
-           - Provide your exact probability estimate (must be a number between 0 and 1)
+        4. Edge Assessment:
+           - Calculate expected value
+           - Identify market mispricing if any
+           - Confidence level (high/medium/low)
 
-        Your response MUST follow this EXACT format:
+        Your response MUST follow this format:
 
         ANALYSIS:
-        [Your detailed analysis here]
+        [Concise analysis following the framework above]
 
         CONCLUSION:
-        I believe {question} has a likelihood of [EXACT_NUMBER] for outcome of [Yes/No].
+        I believe {question} has a likelihood of [EXACT_PROBABILITY] for outcome of [YES/NO].
+        EDGE: [Describe specific edge vs market price]
+        CONFIDENCE: [HIGH/MEDIUM/LOW]
+        CATALYSTS: [Key upcoming events]
 
-        Example of valid conclusions:
-        I believe Will ETH hit $5000? has a likelihood of 0.75 for outcome of Yes.
-        I believe Will BTC crash? has a likelihood of 0.25 for outcome of No.
-
-        IMPORTANT: 
-        - You MUST provide an exact probability number between 0 and 1
-        - NEVER use words like "uncertain", "unclear", or "cannot determine"
-        - If unsure, make your best estimate based on available information
-        - Always format your conclusion exactly like this:
-          "I believe [question] has a likelihood of [0.XX] for outcome of Yes."
-
-        Example:
-        "I believe Will ETH hit $5000? has a likelihood of 0.75 for outcome of Yes."
+        RULES:
+        - Probability MUST be between 0-1 (e.g., 0.75)
+        - MUST identify specific edge vs market price
+        - MUST provide concrete catalysts/timeline
+        - NO hedging language ("maybe", "possibly", etc.)
+        - BE DECISIVE - commit to a clear position
         """
 
     def one_best_trade(
@@ -271,4 +264,23 @@ class Prompter:
         Question: "Will Kamala win"
         Outcomes: Yes or No
         
+        """
+
+    def analyze_edge(self, ai_probability: float, market_price: float) -> str:
+        return f"""
+        Given:
+        - AI Predicted Probability: {ai_probability}
+        - Current Market Price: {market_price}
+        
+        Calculate and explain:
+        1. Absolute edge (difference between predictions)
+        2. Relative edge (percentage difference)
+        3. Kelly criterion position size
+        4. Confidence level based on edge size
+        
+        Format response as:
+        EDGE: [number]
+        KELLY_SIZE: [number]
+        CONFIDENCE: [HIGH/MEDIUM/LOW]
+        REASONING: [1-2 sentences]
         """
