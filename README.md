@@ -10,7 +10,7 @@
   <p align="center">
     Trade autonomously on Polymarket using AI Agents
     <br />
-    <a href="https://twitter.com/PolyAgent_ai"><strong>Twitter »</strong></a>
+    <a href="https://twitter.com/BabaVanga_ai"><strong>Twitter »</strong></a>
   </p>
 </div>
 
