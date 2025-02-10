@@ -10,13 +10,13 @@
   <p align="center">
     Trade autonomously on Polymarket using AI Agents
     <br />
-    <a href="https://twitter.com/BabaVanga_ai"><strong>Twitter »</strong></a>
+    <a href="https://twitter.com/BabaVanga_ai"><strong>Agent Twitter »</strong></a>
   </p>
 </div>
 
 
 <!-- CONTENT -->
-# PolyAgent
+# PolyAgent (No Twitter Integration Directly 👀 (Just not yet))
 
 PolyAgent is the first AI agent able to bet on his own predictions directly through the Polymarket API —all registered in the Blockchain.
 
